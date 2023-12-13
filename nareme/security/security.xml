@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- GRUPO ADMINISTRADOR -->
+        <record id="grupo_administrador" model="res.groups">
+            <field name="name">Nareme/Administrador</field>
+        </record>
+        <!-- GRUPO JEFE DE PROYECTOS -->
+        <record id="grupo_jefe" model="res.groups">
+            <field name="name">Nareme/Jefe Proyectos</field>
+        </record>
+        <!-- GRUPO ANALISTA -->
+        <record id="grupo_analista" model="res.groups">
+            <field name="name">Nareme/Analista</field>
+        </record>
+        <!-- GRUPO PROGRAMADOR -->
+        <record id="grupo_programador" model="res.groups">
+            <field name="name">Nareme/Programador</field>
+        </record>
+    </data>
+</odoo>

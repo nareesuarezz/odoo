@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <!-- Vista de Árbol para empresa_contratadora -->
+        <record model="ir.ui.view" id="nareme_empresa_contratadora_tree">
+            <field name="name">empresa_contratadora.tree</field>
+            <field name="model">empresa_contratadora</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="proyectos" widget="many2many_tags" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de Formulario para empresa_contratadora -->
+        <record model="ir.ui.view" id="nareme_empresa_contratadora_form">
+            <field name="name">empresa_contratadora.form</field>
+            <field name="model">empresa_contratadora</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group colspan="2" col="2">
+                        <field name="name" />
+                        <field name="proyectos" widget="many2many_tags" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Modificación de la vista de proyecto para incluir empresa_contratadora -->
+        <record model="ir.ui.view" id="project_addon">
+            <field name="name">project_addon</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <!-- Reemplazo de label_tasks -->
+                <field name="label_tasks" position="replace">
+                    <field name="tareas" />
+                    <field name="ultima_tarea_fecha" />
+                </field>
+                <!-- Ocultar el campo partner_id (cliente) -->
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!-- Añadir el campo empresa_contratadora en lugar de partner_id -->
+                <field name="partner_id" position="after">
+                    <field name="empresa_contratadora" />
+                </field>
+            </field>
+        </record>
+
+
+        <!-- Acciones de Ventana para abrir las vistas en los modelos -->
+        <record model="ir.actions.act_window" id="nareme_empresa_contratadora_action_window">
+            <field name="name">Empresas</field>
+            <field name="res_model">empresa_contratadora</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="project_project_action_window">
+            <field name="name">Proyectos</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="project_task_action_window">
+            <field name="name">Tareas</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú principal de la aplicación Empresas Contratadoras -->
+        <menuitem name="Empresas" id="menu_root_nareme_empresa_contratadora" />
+
+        <!-- Submenús de Empresas Contratadoras -->
+        <menuitem name="Empresa Contratadora" id="nareme_empresa_contratadora_menu_1"
+            parent="menu_root_nareme_empresa_contratadora"
+            action="nareme_empresa_contratadora_action_window" />
+
+        <menuitem name="Proyectos" id="nareme_empresa_contratadora_menu_2"
+            parent="menu_root_nareme_empresa_contratadora" action="project_project_action_window" />
+
+        <menuitem name="Tareas" id="nareme_empresa_contratadora_menu_3"
+            parent="menu_root_nareme_empresa_contratadora" action="project_task_action_window" />
+    </data>
+</odoo>
