@@ -5,7 +5,7 @@ class NaremeEmpresaContratadora(models.Model):
     _description = 'Nareme Empresa Contratadora'
 
     name = fields.Char(string="Nombre de la empresa")
-    proyectos = fields.Many2many("project.project", string="Proyectos")
+    proyectos = fields.One2many("project.project", "name", string="Proyectos")
 
 class NaremeProyectos(models.Model):
     _name = 'project.project'

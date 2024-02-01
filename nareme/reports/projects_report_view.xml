@@ -45,7 +45,7 @@
                                 <tr class="tr1" t-foreach='o.proyectos' t-as='line'
                                     align="center">
                                     <td class="td1" width="300">
-                                        <span t-esc="line.empresa_contratadora.name" />
+                                        <span t-esc="line.empresa_contratadora" />
                                     </td>
                                     <td class="td1" width="300" align="center">
                                         <span t-esc="line.name" />

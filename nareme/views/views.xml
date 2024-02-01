@@ -20,7 +20,7 @@
                 <form>
                     <group colspan="2" col="2">
                         <field name="name" />
-                        <field name="proyectos" widget="many2many_tags" />
+                        <field name="proyectos" />
                     </group>
                 </form>
             </field>
