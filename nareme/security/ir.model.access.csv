@@ -11,3 +11,8 @@ access_project_task_analista,model_project_task,project.model_project_task,grupo
 access_empresa_contratadora_programador,model_empresa_contratadora,model_empresa_contratadora,grupo_programador,1,0,0,0
 access_project_project_programador,model_project_project,project.model_project_project,grupo_programador,1,0,0,0
 access_project_task_programador,model_project_task,project.model_project_task,grupo_programador,1,1,0,0,[('user_id','=',user.id)]
+access_registro_empresa_contratadora_jefe,model_registro_empresa,model_registro_empresa,grupo_jefe,1,0,0,0
+access_registro_empresa_contratadora_jefe,model_registro_empresa,model_registro_empresa,grupo_administrador,0,0,0,0
+access_registro_empresa_contratadora_jefe,model_registro_empresa,model_registro_empresa,grupo_analista,0,0,0,0
+access_registro_empresa_contratadora_jefe,model_registro_empresa,model_registro_empresa,grupo_programador,0,0,0,0
+

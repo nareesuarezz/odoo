@@ -48,6 +48,19 @@
             </field>
         </record>
 
+        <!-- Vista de Árbol para registro_empresa -->
+        <record model="ir.ui.view" id="registro_empresa_tree">
+            <field name="name">registro_empresa.tree</field>
+            <field name="model">registro_empresa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="usuario" />
+                    <field name="empresa" />
+                    <field name="fecha_hora" />
+                    <field name="accion" />
+                </tree>
+            </field>
+        </record>
 
         <!-- Acciones de Ventana para abrir las vistas en los modelos -->
         <record model="ir.actions.act_window" id="nareme_empresa_contratadora_action_window">
@@ -68,6 +81,12 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record model="ir.actions.act_window" id="registro_empresa_action_window">
+            <field name="name">Registro de Empresas</field>
+            <field name="res_model">registro_empresa</field>
+            <field name="view_mode">tree</field>
+        </record>
+
         <!-- Menú principal de la aplicación Empresas Contratadoras -->
         <menuitem name="Empresas" id="menu_root_nareme_empresa_contratadora" />
 
@@ -82,6 +101,8 @@
         <menuitem name="Tareas" id="nareme_empresa_contratadora_menu_3"
             parent="menu_root_nareme_empresa_contratadora" action="project_task_action_window" />
 
-
+        <!-- Menú para registro_empresa en Ajustes -->
+        <menuitem name="Registro de Empresas" id="registro_empresa_menu"
+            parent="menu_root_nareme_empresa_contratadora" action="registro_empresa_action_window" />
     </data>
-</odoo> 
+</odoo>
